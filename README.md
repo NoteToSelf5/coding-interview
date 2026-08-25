@@ -18,7 +18,7 @@ Requires a JDK 11+ install. No local Maven install needed — use the wrapper:
 ./mvnw spring-boot:run
 ```
 
-The API starts on port 8080, backed by the seeded CSV at
+The API starts on port 8081, backed by the seeded CSV at
 `src/main/resources/data/fishing-records-seed.csv`.
 
 This project uses [Lombok](https://projectlombok.org/) (see `FishingRecord`). If your IDE shows
@@ -36,15 +36,15 @@ Each task below has one example test already in `src/test/java/.../`, showing yo
 contract. (Additional tests are used for grading after the session — you don't need to write
 your own tests, just make the existing one pass and keep the others green.)
 
-## The three tasks (~8 / ~10 / ~12 minutes respectively)
+## The three tasks
 
-### 1. Add a new endpoint (~8 min)
+### 1. Add a new endpoint
 
 Add `GET /api/fishing-records/top-by-species`, returning the single largest-weight record for
 each distinct species in the data store. See `NewEndpointStory1ExampleTest` for the expected
 shape.
 
-### 2. Refactor (~10 min)
+### 2. Refactor
 
 `GET /api/fishing-records?location=...` currently works, but its CSV read/write logic is
 inlined directly into `FishingRecordController`. Extract it into a separate persistence
@@ -52,13 +52,8 @@ class/method(s) so request handling and CSV I/O aren't tangled together. **Behav
 change** — `RefactorStory2ExampleTest` (and the grading tests) must still pass exactly as
 before.
 
-### 3. Fix a bug (~12 min)
+### 3. Fix a bug
 
 The same location-filter endpoint has a bug: some queries return records from the wrong
 location. Find and fix it. `BugfixStory3ExampleTest` shows the endpoint's normal contract; your
 fix should not change that behavior, only correct the mismatch.
-
-## If you run out of time on task 2
-
-Tell your interviewer — they can give you a reference version of the refactor so you can still
-attempt task 3 independently.
