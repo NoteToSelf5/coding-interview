@@ -19,8 +19,6 @@
 
     <properties>
         <java.version>11</java.version>
-        <!-- Override the parent-managed version: newer Lombok releases are needed for
-             annotation processing to work correctly on newer JDKs used to run the build. -->
         <lombok.version>1.18.46</lombok.version>
     </properties>
 

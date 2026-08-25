@@ -8,9 +8,6 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-/**
- * A single logged catch. One CSV row = one FishingRecord.
- */
 @Getter
 @Setter
 @NoArgsConstructor
