@@ -6,11 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-/**
- * Copies the seed/baseline CSV fixture into an isolated temp file per test class, so tests
- * exercise the endpoint's HTTP contract against a fixed baseline without mutating shared state
- * or leaking changes between test classes (research.md test-isolation strategy).
- */
 public final class CsvFixtureSupport {
 
     private CsvFixtureSupport() {

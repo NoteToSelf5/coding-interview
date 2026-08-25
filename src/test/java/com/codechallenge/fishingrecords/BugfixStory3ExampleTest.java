@@ -17,12 +17,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Visible example test (shipped to candidates) for the Story 3 task: fix a planted defect in
- * the catch-location filter. This illustrates the contract using a location value that does
- * not happen to trigger the defect — the assertion that actually reproduces the bug is in the
- * hidden test suite used for grading.
- */
 @SpringBootTest
 @AutoConfigureMockMvc
 class BugfixStory3ExampleTest {

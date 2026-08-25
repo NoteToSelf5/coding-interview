@@ -24,13 +24,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Deliberately not layered: CSV read/write is inlined into each handler below rather than
- * extracted into a persistence class. This is the starter state for the coding-interview
- * challenge's refactor task (extract persistence from request handling), and the
- * location-filter handler additionally contains a planted, deterministic defect (substring
- * match instead of exact match) for the bugfix task. See specs/001-fishing-records-api/spec.md.
- */
 @RestController
 @RequestMapping("/api/fishing-records")
 public class FishingRecordController {
@@ -96,10 +89,6 @@ public class FishingRecordController {
                 return ResponseEntity.ok(all);
             }
 
-            // Planted defect (Story 3 bugfix target): this uses a substring match instead of
-            // an exact match, so querying a shorter location name that happens to be a prefix
-            // of a longer one (e.g. "Lake Constance" vs. "Lake Constance North") incorrectly
-            // also returns the longer location's records.
             List<FishingRecord> filtered = new ArrayList<>();
             for (FishingRecord record : all) {
                 if (record.getLocation().contains(location)) {
@@ -114,8 +103,6 @@ public class FishingRecordController {
 
     @GetMapping("/top-by-species")
     public ResponseEntity<?> topBySpecies() {
-        // Not implemented in the starter — this endpoint is the Story 1 (junior-calibrated)
-        // candidate task: return the single largest-weight record for each distinct species.
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 

@@ -17,12 +17,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Visible example test (shipped to candidates) for the Story 2 task: refactor the
- * catch-location filter's persistence logic without changing behavior. This illustrates the
- * contract with one straightforward correct-match case; additional pre-existing scenarios used
- * to detect a behavior regression are covered by the hidden test suite.
- */
 @SpringBootTest
 @AutoConfigureMockMvc
 class RefactorStory2ExampleTest {

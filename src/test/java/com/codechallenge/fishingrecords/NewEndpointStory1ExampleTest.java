@@ -18,12 +18,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Visible example test (shipped to candidates) for the Story 1 task: add
- * GET /api/fishing-records/top-by-species, returning the largest-weight record per species.
- * This illustrates the contract only — edge cases (empty store, weight ties) are covered by
- * the hidden test suite used for grading.
- */
 @SpringBootTest
 @AutoConfigureMockMvc
 class NewEndpointStory1ExampleTest {
