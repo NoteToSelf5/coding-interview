@@ -5,6 +5,11 @@ total for the three tasks below.
 
 ## Before you start
 
+- Create a new branch named after yourself (e.g. `jane-doe`) and switch to it — do all your
+  work for this exercise on that branch:
+  ```bash
+  git checkout -b your-name
+  ```
 - **No AI coding assistants** (Copilot, ChatGPT, Claude, or similar) for this session.
 - Please **share your screen** for the full 30 minutes so your interviewer can follow along.
 - Ask clarifying questions any time — this README plus the interviewer are your only resources;
