@@ -39,6 +39,7 @@ class NewEndpointStory1ExampleTest {
         mockMvc.perform(get("/api/fishing-records/top-by-species"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[?(@.species == 'Carp')].weightKg", contains(6.8)))
+                .andExpect(jsonPath("$[?(@.species == 'Carp')].color", contains("Golden")))
                 .andExpect(jsonPath("$[?(@.species == 'Perch')].weightKg", contains(0.6)));
     }
 }

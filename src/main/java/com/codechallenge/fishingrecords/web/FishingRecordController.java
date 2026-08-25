@@ -37,9 +37,14 @@ public class FishingRecordController {
     @PostMapping
     public ResponseEntity<?> createRecord(@RequestBody Map<String, Object> body) {
         String species = (String) body.get("species");
-        String location = (String) body.get("location");
+        String color = (String) body.get("color");
         String anglerName = (String) body.get("anglerName");
+        String anglerLicenseNumber = (String) body.get("anglerLicenseNumber");
+        String anglerEmail = (String) body.get("anglerEmail");
+        String location = (String) body.get("location");
         String caughtAtRaw = (String) body.get("caughtAt");
+        String weatherCondition = (String) body.get("weatherCondition");
+        String baitUsed = (String) body.get("baitUsed");
         double weightKg = ((Number) body.get("weightKg")).doubleValue();
         double lengthCm = ((Number) body.get("lengthCm")).doubleValue();
 
@@ -65,13 +70,16 @@ public class FishingRecordController {
             }
 
             FishingRecord created = new FishingRecord(nextId, species, weightKg, lengthCm,
-                    location, LocalDateTime.parse(caughtAtRaw), anglerName);
+                    color, anglerName, anglerLicenseNumber, anglerEmail, location,
+                    LocalDateTime.parse(caughtAtRaw), weatherCondition, baitUsed);
 
             try (Writer writer = new FileWriter(storagePath, true)) {
                 CSVFormat.DEFAULT.print(writer).printRecord(
                         created.getId(), created.getSpecies(), created.getWeightKg(),
-                        created.getLengthCm(), created.getLocation(), created.getCaughtAt(),
-                        created.getAnglerName());
+                        created.getLengthCm(), created.getColor(), created.getAnglerName(),
+                        created.getAnglerLicenseNumber(), created.getAnglerEmail(),
+                        created.getLocation(), created.getCaughtAt(),
+                        created.getWeatherCondition(), created.getBaitUsed());
             }
 
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
@@ -115,9 +123,14 @@ public class FishingRecordController {
                         row.get("species"),
                         Double.parseDouble(row.get("weightKg")),
                         Double.parseDouble(row.get("lengthCm")),
+                        row.get("color"),
+                        row.get("anglerName"),
+                        row.get("anglerLicenseNumber"),
+                        row.get("anglerEmail"),
                         row.get("location"),
                         LocalDateTime.parse(row.get("caughtAt")),
-                        row.get("anglerName")));
+                        row.get("weatherCondition"),
+                        row.get("baitUsed")));
             }
         }
         return records;

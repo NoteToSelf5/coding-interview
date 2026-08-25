@@ -21,7 +21,12 @@ public class FishingRecord {
     private String species;
     private double weightKg;
     private double lengthCm;
+    private String color;
+    private String anglerName;
+    private String anglerLicenseNumber;
+    private String anglerEmail;
     private String location;
     private LocalDateTime caughtAt;
-    private String anglerName;
+    private String weatherCondition;
+    private String baitUsed;
 }

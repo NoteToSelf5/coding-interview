@@ -38,6 +38,7 @@ class RefactorStory2ExampleTest {
         mockMvc.perform(get("/api/fishing-records").param("location", "Rhine River"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(2))
-                .andExpect(jsonPath("$[0].location").value("Rhine River"));
+                .andExpect(jsonPath("$[0].location").value("Rhine River"))
+                .andExpect(jsonPath("$[0].anglerLicenseNumber").value("LIC-1001"));
     }
 }

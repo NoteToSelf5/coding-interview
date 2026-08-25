@@ -37,6 +37,7 @@ class BugfixStory3ExampleTest {
     void filtersRecordsByExactLocation() throws Exception {
         mockMvc.perform(get("/api/fishing-records").param("location", "Lake Constance North"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.length()").value(3));
+                .andExpect(jsonPath("$.length()").value(3))
+                .andExpect(jsonPath("$[0].weatherCondition").value("Rainy"));
     }
 }

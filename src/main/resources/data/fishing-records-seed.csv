@@ -1,9 +1,9 @@
-id,species,weightKg,lengthCm,location,caughtAt,anglerName
-1,Pike,4.2,71.5,Lake Constance,2026-06-01T08:15:00,Alex Doe
-2,Pike,4.2,70.0,Lake Constance,2026-06-02T09:00:00,Sam Lee
-3,Carp,6.8,55.0,Lake Constance North,2026-06-03T07:30:00,Jamie Fox
-4,Carp,3.1,40.2,Rhine River,2026-06-04T10:45:00,Alex Doe
-5,Trout,1.2,28.0,Lake Constance,2026-06-05T06:20:00,"Müller, Hans"
-6,Trout,1.5,30.5,Lake Constance North,2026-06-06T11:10:00,Sam Lee
-7,Perch,0.6,18.0,Rhine River,2026-06-07T13:00:00,Jamie Fox
-8,Pike,2.9,60.0,Lake Constance North,2026-06-08T14:30:00,Alex Doe
+id,species,weightKg,lengthCm,color,anglerName,anglerLicenseNumber,anglerEmail,location,caughtAt,weatherCondition,baitUsed
+1,Pike,4.2,71.5,Silver,Alex Doe,LIC-1001,alex.doe@example.com,Lake Constance,2026-06-01T08:15:00,Sunny,Spinner
+2,Pike,4.2,70.0,Green,Sam Lee,LIC-1002,sam.lee@example.com,Lake Constance,2026-06-02T09:00:00,Cloudy,Spoon
+3,Carp,6.8,55.0,Golden,Jamie Fox,LIC-1003,jamie.fox@example.com,Lake Constance North,2026-06-03T07:30:00,Rainy,Corn
+4,Carp,3.1,40.2,Brown,Alex Doe,LIC-1001,alex.doe@example.com,Rhine River,2026-06-04T10:45:00,Sunny,Bread
+5,Trout,1.2,28.0,Speckled,"Müller, Hans",LIC-1004,hans.mueller@example.com,Lake Constance,2026-06-05T06:20:00,Overcast,Worm
+6,Trout,1.5,30.5,Rainbow,Sam Lee,LIC-1002,sam.lee@example.com,Lake Constance North,2026-06-06T11:10:00,Windy,Fly
+7,Perch,0.6,18.0,Striped,Jamie Fox,LIC-1003,jamie.fox@example.com,Rhine River,2026-06-07T13:00:00,Sunny,Worm
+8,Pike,2.9,60.0,Silver,Alex Doe,LIC-1001,alex.doe@example.com,Lake Constance North,2026-06-08T14:30:00,Cloudy,Spinner
