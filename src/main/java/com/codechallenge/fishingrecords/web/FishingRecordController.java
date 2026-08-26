@@ -35,23 +35,11 @@ public class FishingRecordController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createRecord(@RequestBody Map<String, Object> body) {
-        String species = (String) body.get("species");
-        String color = (String) body.get("color");
-        String anglerName = (String) body.get("anglerName");
-        String anglerLicenseNumber = (String) body.get("anglerLicenseNumber");
-        String anglerEmail = (String) body.get("anglerEmail");
-        String location = (String) body.get("location");
-        String caughtAtRaw = (String) body.get("caughtAt");
-        String weatherCondition = (String) body.get("weatherCondition");
-        String baitUsed = (String) body.get("baitUsed");
-        double weightKg = ((Number) body.get("weightKg")).doubleValue();
-        double lengthCm = ((Number) body.get("lengthCm")).doubleValue();
-
-        if (weightKg <= 0) {
+    public ResponseEntity<?> createRecord(@RequestBody FishingRecord body) {
+        if (body.getWeightKg() <= 0) {
             return errorResponse("weightKg must be greater than 0");
         }
-        if (lengthCm <= 0) {
+        if (body.getLengthCm() <= 0) {
             return errorResponse("lengthCm must be greater than 0");
         }
 
@@ -69,20 +57,18 @@ public class FishingRecordController {
                 }
             }
 
-            FishingRecord created = new FishingRecord(nextId, species, weightKg, lengthCm,
-                    color, anglerName, anglerLicenseNumber, anglerEmail, location,
-                    LocalDateTime.parse(caughtAtRaw), weatherCondition, baitUsed);
+            body.setId(nextId);
 
             try (Writer writer = new FileWriter(storagePath, true)) {
                 CSVFormat.DEFAULT.print(writer).printRecord(
-                        created.getId(), created.getSpecies(), created.getWeightKg(),
-                        created.getLengthCm(), created.getColor(), created.getAnglerName(),
-                        created.getAnglerLicenseNumber(), created.getAnglerEmail(),
-                        created.getLocation(), created.getCaughtAt(),
-                        created.getWeatherCondition(), created.getBaitUsed());
+                        body.getId(), body.getSpecies(), body.getWeightKg(),
+                        body.getLengthCm(), body.getColor(), body.getAnglerName(),
+                        body.getAnglerLicenseNumber(), body.getAnglerEmail(),
+                        body.getLocation(), body.getCaughtAt(),
+                        body.getWeatherCondition(), body.getBaitUsed());
             }
 
-            return ResponseEntity.status(HttpStatus.CREATED).body(created);
+            return ResponseEntity.status(HttpStatus.CREATED).body(body);
         } catch (IOException e) {
             throw new IllegalStateException("Failed to read/write fishing records CSV", e);
         }
