@@ -51,11 +51,9 @@ recorded weight (kg) for that species (e.g. `{"Pike": 4.2, "Carp": 6.8}`). See
 
 ### 2. Refactor
 
-`GET /api/fishing-records?location=...` currently works, but its CSV read/write logic is
-inlined directly into `FishingRecordController`. Extract it into a separate persistence
-class/method(s) so request handling and CSV I/O aren't tangled together. **Behavior must not
-change** — `RefactorStory2ExampleTest` (and the grading tests) must still pass exactly as
-before.
+Take a look at `GET /api/fishing-records?location=...` in `FishingRecordController`. Improve
+the code however you think is best. The only hard requirement: **behavior must not change** —
+`RefactorStory2ExampleTest` (and the grading tests) must still pass exactly as before.
 
 ### 3. Fix a bug
 
