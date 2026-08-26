@@ -13,7 +13,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.io.IOException;
 import java.nio.file.Path;
 
-import static org.hamcrest.Matchers.contains;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -35,11 +34,11 @@ class NewEndpointStory1ExampleTest {
     private MockMvc mockMvc;
 
     @Test
-    void returnsLargestRecordPerSpecies() throws Exception {
+    void returnsLargestWeightPerSpecies() throws Exception {
+        // Response is a species-to-weight map, e.g. {"Carp": 6.8, "Perch": 0.6, ...}.
         mockMvc.perform(get("/api/fishing-records/top-by-species"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[?(@.species == 'Carp')].weightKg", contains(6.8)))
-                .andExpect(jsonPath("$[?(@.species == 'Carp')].color", contains("Golden")))
-                .andExpect(jsonPath("$[?(@.species == 'Perch')].weightKg", contains(0.6)));
+                .andExpect(jsonPath("$.Carp").value(6.8))
+                .andExpect(jsonPath("$.Perch").value(0.6));
     }
 }

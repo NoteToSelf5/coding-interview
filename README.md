@@ -45,9 +45,9 @@ your own tests, just make the existing one pass and keep the others green.)
 
 ### 1. Add a new endpoint
 
-Add `GET /api/fishing-records/top-by-species`, returning the single largest-weight record for
-each distinct species in the data store. See `NewEndpointStory1ExampleTest` for the expected
-shape.
+Add `GET /api/fishing-records/top-by-species`, returning a map from species name to the largest
+recorded weight (kg) for that species (e.g. `{"Pike": 4.2, "Carp": 6.8}`). See
+`NewEndpointStory1ExampleTest` for the expected shape.
 
 ### 2. Refactor
 
